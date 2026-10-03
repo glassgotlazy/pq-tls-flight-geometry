@@ -1,0 +1,60 @@
+# final.py: bootstrap B=10000, per-cell seed = crc32("<pass>|<R>|<model>|<p>|<group>"); numpy 2.4.6
+PASS B (client->server loss)
+R= 20 p=0.05 X25519                 n=300 extra_mean=  11.9 [  6.7, 17.7] stall%= 5.3 p99=   245 head=0@   0 rto=15@ 222 tail=15@ 222
+R= 20 p=0.05 X25519MLKEM768:X25519  n=300 extra_mean=  16.6 [  9.8, 24.1] stall%= 6.7 p99=   248 head=0@   0 rto=18@ 222 tail=18@ 222
+R= 20 p=0.05 default                n=300 extra_mean=  16.1 [  9.8, 22.9] stall%= 9.0 p99=   269 head=9@  30 rto=0@   0 tail=18@ 247
+R= 20 p=0.10 X25519                 n=300 extra_mean=  32.3 [ 22.3, 43.6] stall%=12.3 p99=   468 head=0@   0 rto=29@ 224 tail=33@ 224
+R= 20 p=0.10 X25519MLKEM768:X25519  n=300 extra_mean=  34.0 [ 24.3, 44.4] stall%=13.7 p99=   475 head=0@   0 rto=33@ 224 tail=35@ 225
+R= 20 p=0.10 default                n=300 extra_mean=  36.5 [ 26.3, 47.5] stall%=20.7 p99=   498 head=22@  31 rto=3@ 237 tail=32@ 247
+R= 50 p=0.05 X25519                 n=300 extra_mean=  19.2 [ 11.3, 28.2] stall%= 6.7 p99=   336 head=2@ 106 rto=15@ 250 tail=4@ 275
+R= 50 p=0.05 X25519MLKEM768:X25519  n=300 extra_mean=  12.3 [  6.3, 19.4] stall%= 4.3 p99=   315 head=1@ 106 rto=11@ 252 tail=0@   0
+R= 50 p=0.05 default                n=300 extra_mean=  20.8 [ 12.0, 31.9] stall%=10.3 p99=   386 head=19@  69 rto=0@   0 tail=10@ 327
+R= 50 p=0.10 X25519                 n=300 extra_mean=  30.7 [ 21.2, 41.1] stall%=10.7 p99=   552 head=2@ 105 rto=20@ 251 tail=5@ 274
+R= 50 p=0.10 X25519MLKEM768:X25519  n=300 extra_mean=  29.0 [ 19.7, 39.0] stall%=10.3 p99=   552 head=2@ 106 rto=21@ 251 tail=5@ 281
+R= 50 p=0.10 default                n=300 extra_mean=  37.3 [ 27.1, 48.4] stall%=18.7 p99=   387 head=26@  69 rto=0@   0 tail=21@ 320
+R=100 p=0.05 X25519                 n=300 extra_mean=  19.2 [ 11.5, 27.8] stall%= 5.7 p99=   427 head=1@ 208 rto=12@ 311 tail=1@ 358
+R=100 p=0.05 X25519MLKEM768:X25519  n=300 extra_mean=  16.5 [  8.4, 26.0] stall%= 4.3 p99=   465 head=1@ 206 rto=7@ 312 tail=1@ 363
+R=100 p=0.05 default                n=300 extra_mean=  30.2 [ 20.0, 41.7] stall%=11.3 p99=   536 head=19@ 131 rto=0@   0 tail=15@ 416
+R=100 p=0.10 X25519                 n=300 extra_mean=  54.0 [ 40.0, 68.8] stall%=15.3 p99=   732 head=3@ 208 rto=26@ 314 tail=2@ 360
+R=100 p=0.10 X25519MLKEM768:X25519  n=300 extra_mean=  44.6 [ 32.1, 57.5] stall%=12.7 p99=   456 head=2@ 206 rto=23@ 309 tail=2@ 354
+R=100 p=0.10 default                n=300 extra_mean=  63.0 [ 47.2, 79.9] stall%=20.3 p99=   542 head=28@ 132 rto=1@ 311 tail=30@ 416
+R=200 p=0.05 X25519                 n=300 extra_mean=  37.9 [ 21.9, 56.7] stall%= 5.3 p99=   836 head=0@   0 rto=14@ 620 tail=0@   0
+R=200 p=0.05 X25519MLKEM768:X25519  n=300 extra_mean=  56.0 [ 36.5, 77.4] stall%= 8.3 p99=   886 head=0@   0 rto=20@ 622 tail=0@   0
+R=200 p=0.05 default                n=300 extra_mean=  75.8 [ 50.8,102.8] stall%=11.0 p99=  1097 head=10@ 259 rto=0@   0 tail=20@ 824
+R=200 p=0.10 X25519                 n=150 extra_mean=  92.0 [ 55.1,133.6] stall%=12.7 p99=  1426 head=2@ 416 rto=13@ 621 tail=0@   0
+R=200 p=0.10 X25519MLKEM768:X25519  n=150 extra_mean=  94.4 [ 48.7,149.2] stall%=10.0 p99=  1441 head=1@ 417 rto=8@ 615 tail=0@   0
+R=200 p=0.10 default                n=150 extra_mean= 126.6 [ 83.2,176.3] stall%=21.3 p99=  1628 head=16@ 258 rto=1@ 626 tail=11@ 824
+ratio default / mean(one-segment)
+20 0.05 1.13 14.2 16.1
+20 0.1 1.1 33.1 36.5
+50 0.05 1.32 15.8 20.8
+50 0.1 1.25 29.8 37.3
+100 0.05 1.69 17.9 30.2
+100 0.1 1.28 49.3 63.0
+200 0.05 1.61 47.0 75.8
+200 0.1 1.36 93.2 126.6
+PASS C rsa both
+R=50 bernoulli p=0.00 X25519                 n=150 mean=  52.1 [ 52.1, 52.2] p50= 52.0 p90=  52.6 p99=    54
+R=50 bernoulli p=0.00 default                n=150 mean=  52.4 [ 52.4, 52.5] p50= 52.3 p90=  53.1 p99=    54
+R=50 bernoulli p=0.02 X25519                 n=150 mean=  64.8 [ 57.4, 74.3] p50= 51.9 p90=  68.9 p99=   370
+R=50 bernoulli p=0.02 default                n=150 mean=  69.8 [ 60.2, 81.2] p50= 52.3 p90=  70.7 p99=   381
+R=50 bernoulli p=0.05 X25519                 n=150 mean=  98.9 [ 83.5,115.7] p50= 52.3 p90= 360.4 p99=   394
+R=50 bernoulli p=0.05 default                n=150 mean= 104.5 [ 79.9,140.2] p50= 52.5 p90= 171.9 p99=   436
+PASS A both
+R=50 bernoulli p=0.00 X25519                 n=150 mean=  51.8 [ 51.7, 51.9] p50= 51.6 p90=  52.3 p99=    55
+R=50 bernoulli p=0.00 X25519MLKEM768:X25519  n=150 mean=  52.3 [ 52.2, 52.5] p50= 52.1 p90=  52.9 p99=    61
+R=50 bernoulli p=0.00 default                n=150 mean=  52.2 [ 52.1, 52.4] p50= 52.0 p90=  52.8 p99=    58
+R=50 bernoulli p=0.01 X25519                 n=150 mean=  60.6 [ 53.5, 69.4] p50= 51.6 p90=  52.1 p99=   322
+R=50 bernoulli p=0.01 X25519MLKEM768:X25519  n=150 mean=  61.0 [ 54.2, 69.8] p50= 51.9 p90=  52.8 p99=   372
+R=50 bernoulli p=0.01 default                n=150 mean=  61.1 [ 54.2, 70.3] p50= 52.0 p90=  52.7 p99=   378
+R=50 bernoulli p=0.02 X25519                 n=150 mean=  69.7 [ 60.4, 80.5] p50= 51.7 p90=  52.4 p99=   326
+R=50 bernoulli p=0.02 X25519MLKEM768:X25519  n=150 mean=  73.1 [ 61.5, 86.9] p50= 51.9 p90=  70.1 p99=   385
+R=50 bernoulli p=0.02 default                n=150 mean=  70.1 [ 60.0, 82.1] p50= 52.0 p90=  68.5 p99=   379
+R=50 bernoulli p=0.05 X25519                 n=150 mean=  92.1 [ 77.2,108.2] p50= 51.7 p90= 314.9 p99=   330
+R=50 bernoulli p=0.05 X25519MLKEM768:X25519  n=150 mean=  74.2 [ 63.3, 86.6] p50= 52.0 p90= 118.7 p99=   383
+R=50 bernoulli p=0.05 default                n=150 mean=  95.4 [ 77.8,115.3] p50= 52.0 p90= 208.3 p99=   640
+R=50 bernoulli p=0.10 X25519                 n=150 mean= 141.4 [101.3,195.0] p50= 52.0 p90= 353.4 p99=  2311
+R=50 bernoulli p=0.10 X25519MLKEM768:X25519  n=150 mean= 199.9 [124.4,297.4] p50= 52.3 p90= 378.6 p99=  3352
+R=50 bernoulli p=0.10 default                n=150 mean= 300.7 [161.2,505.7] p50= 52.4 p90= 397.0 p99=  3260
+R=50 ge        p=0.05 X25519                 n=150 mean= 142.4 [ 84.1,219.0] p50= 51.7 p90= 310.5 p99=  2331
+R=50 ge        p=0.05 X25519MLKEM768:X25519  n=150 mean= 158.8 [ 96.5,246.8] p50= 52.1 p90= 365.4 p99=  2083

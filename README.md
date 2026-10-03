@@ -7,7 +7,7 @@ Regenerates every number in the paper. Tested on Linux 6.18 (x86-64), OpenSSL 3.
 - OpenSSL 3.5.4 installed at /opt/ossl35 (`./Configure --prefix=/opt/ossl35 && make && make install_sw`)
 - `gcc hs.c -o hs -I/opt/ossl35/include -L/opt/ossl35/lib -lssl -lcrypto`
 - Python 3; `pip install curl_cffi` for the browser-fingerprint measurement
-- `pip install numpy` for analysis/big.py
+- `pip install numpy` for analysis/big.py and analysis/final.py
 
 ## Layout
 | Path | Purpose | Paper |
@@ -21,7 +21,7 @@ Regenerates every number in the paper. Tested on Linux 6.18 (x86-64), OpenSSL 3.
 | geometry/ch.py, matrix.py | OpenSSL s_client/s_server ClientHello size and resumption matrix | IV-A, VI-C |
 | geometry/browsers.py | browser-fingerprint ClientHellos via curl_cffi | Table V |
 | analysis/big.py, big_output.txt | 2,000-handshake pass B: clusters, bootstrap CIs, permutation tests (exact output committed) | Tables VI-VII |
-| analysis/final.py, stalls.py | passes A, B (300), C | Table VIII |
+| analysis/final.py, final_output.txt, stalls.py | passes A, B (300), C (exact output committed) | Table VIII |
 | data/ | raw CSV/JSON from the runs reported in the paper | all |
 
 ## Run order
@@ -37,6 +37,10 @@ python3 analysis/final.py                 # Table VIII
 `analysis/big_output.txt` (`python3 analysis/big.py | diff - analysis/big_output.txt` prints nothing).
 Each (R, p) cell uses its own random generator, `numpy.random.default_rng(1000*R + round(100*p))`, with
 10,000 bootstrap resamples and 10,000 permutations, so a cell's CIs and p-values do not depend on which other cells exist.
+`python3 analysis/final.py` reproduces Table VIII (and the 300-handshake pass B ratios) exactly; its output is
+committed as `analysis/final_output.txt` (`python3 analysis/final.py | diff - analysis/final_output.txt` prints nothing).
+Each cell uses its own generator, `numpy.random.default_rng(zlib.crc32("<pass>|<R>|<model>|<p>|<group>"))`,
+with 10,000 bootstrap resamples.
 
 Kernel timer constants referenced in the paper: net/ipv4/tcp_output.c (tcp_schedule_loss_probe, lines 3063-3079),
 net/ipv4/tcp_input.c (tcp_rtt_estimator, lines 1095-1096), include/net/tcp.h (__tcp_set_rto, lines 834-837),
