@@ -1,0 +1,6 @@
+{"label": "pass=C;cert=rsa;rtt=50;model=bernoulli;p=0.0;dir=both", "group": "X25519", "N": 150, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0, "TCPLostRetransmit": 0, "TCPFastRetrans": 0}
+{"label": "pass=C;cert=rsa;rtt=50;model=bernoulli;p=0.0;dir=both", "group": "default", "N": 150, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0, "TCPLostRetransmit": 0, "TCPFastRetrans": 0}
+{"label": "pass=C;cert=rsa;rtt=50;model=bernoulli;p=0.02;dir=both", "group": "X25519", "N": 150, "TCPLossProbes": 2, "TCPLossProbeRecovery": 2, "TCPTimeouts": 5, "TCPSackRecovery": 4, "TCPLostRetransmit": 0, "TCPFastRetrans": 4}
+{"label": "pass=C;cert=rsa;rtt=50;model=bernoulli;p=0.02;dir=both", "group": "default", "N": 150, "TCPLossProbes": 2, "TCPLossProbeRecovery": 2, "TCPTimeouts": 7, "TCPSackRecovery": 5, "TCPLostRetransmit": 0, "TCPFastRetrans": 5}
+{"label": "pass=C;cert=rsa;rtt=50;model=bernoulli;p=0.05;dir=both", "group": "X25519", "N": 150, "TCPLossProbes": 7, "TCPLossProbeRecovery": 6, "TCPTimeouts": 15, "TCPSackRecovery": 8, "TCPLostRetransmit": 1, "TCPFastRetrans": 8}
+{"label": "pass=C;cert=rsa;rtt=50;model=bernoulli;p=0.05;dir=both", "group": "default", "N": 150, "TCPLossProbes": 6, "TCPLossProbeRecovery": 6, "TCPTimeouts": 9, "TCPSackRecovery": 10, "TCPLostRetransmit": 3, "TCPFastRetrans": 10}

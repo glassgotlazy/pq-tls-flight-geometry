@@ -1,0 +1,9 @@
+{"rtt": 20, "p": 0.0, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"rtt": 20, "p": 0.05, "TCPLossProbes": 329, "TCPLossProbeRecovery": 280, "TCPTimeouts": 363, "TCPSackRecovery": 387}
+{"rtt": 50, "p": 0.0, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"rtt": 50, "p": 0.05, "TCPLossProbes": 323, "TCPLossProbeRecovery": 270, "TCPTimeouts": 383, "TCPSackRecovery": 421}
+{"rtt": 100, "p": 0.0, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"rtt": 100, "p": 0.05, "TCPLossProbes": 316, "TCPLossProbeRecovery": 271, "TCPTimeouts": 346, "TCPSackRecovery": 385}
+{"rtt": 200, "p": 0.0, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"rtt": 200, "p": 0.05, "TCPLossProbes": 285, "TCPLossProbeRecovery": 228, "TCPTimeouts": 374, "TCPSackRecovery": 435}
+{"rtt": 20, "p": 0.1, "TCPLossProbes": 679, "TCPLossProbeRecovery": 492, "TCPTimeouts": 802, "TCPSackRecovery": 784}

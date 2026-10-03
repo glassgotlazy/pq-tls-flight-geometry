@@ -1,0 +1,13 @@
+# build outputs
+testbed/hs
+*.o
+__pycache__/
+*.pyc
+# keys and certificates (generate locally)
+*.pem
+*.key
+*.crt
+# local run artefacts
+sess.pem
+node_modules/
+browsers_real/browsers_real.md

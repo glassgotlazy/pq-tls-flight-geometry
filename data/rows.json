@@ -1,0 +1,593 @@
+[
+ {
+  "profile": "lean (TLS1.3-only, no SNI)",
+  "groups": "classical X25519",
+  "full": 217,
+  "resumed": 488,
+  "reused": true,
+  "shares": [
+   [
+    "X25519",
+    32
+   ]
+  ],
+  "rshares": [
+   [
+    "X25519",
+    32
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 1150,
+  "srv_res": 441,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "lean (TLS1.3-only, no SNI)",
+  "groups": "OpenSSL 3.5 default (hybrid+X25519 shares)",
+  "full": 1451,
+  "resumed": 1722,
+  "reused": true,
+  "shares": [
+   [
+    "X25519MLKEM768",
+    1216
+   ],
+   [
+    "X25519",
+    32
+   ]
+  ],
+  "rshares": [
+   [
+    "X25519MLKEM768",
+    1216
+   ],
+   [
+    "X25519",
+    32
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 2218,
+  "srv_res": 1507,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "lean (TLS1.3-only, no SNI)",
+  "groups": "X25519MLKEM768 share only",
+  "full": 1403,
+  "resumed": 1674,
+  "reused": true,
+  "shares": [
+   [
+    "X25519MLKEM768",
+    1216
+   ]
+  ],
+  "rshares": [
+   [
+    "X25519MLKEM768",
+    1216
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 2216,
+  "srv_res": 1507,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "lean (TLS1.3-only, no SNI)",
+  "groups": "SecP256r1MLKEM768 only",
+  "full": 1426,
+  "resumed": 1697,
+  "reused": false,
+  "shares": [
+   [
+    "SecP256r1MLKEM768",
+    1249
+   ]
+  ],
+  "rshares": [
+   [
+    "SecP256r1MLKEM768",
+    1249
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 0,
+  "srv_res": 0,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "lean (TLS1.3-only, no SNI)",
+  "groups": "MLKEM768 only",
+  "full": 1361,
+  "resumed": 1632,
+  "reused": false,
+  "shares": [
+   [
+    "MLKEM768",
+    1184
+   ]
+  ],
+  "rshares": [
+   [
+    "MLKEM768",
+    1184
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 0,
+  "srv_res": 0,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "lean (TLS1.3-only, no SNI)",
+  "groups": "SecP384r1MLKEM1024 only",
+  "full": 1842,
+  "resumed": 2113,
+  "reused": false,
+  "shares": [
+   [
+    "SecP384r1MLKEM1024",
+    1665
+   ]
+  ],
+  "rshares": [
+   [
+    "SecP384r1MLKEM1024",
+    1665
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 0,
+  "srv_res": 0,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "lean (TLS1.3-only, no SNI)",
+  "groups": "MLKEM1024 only",
+  "full": 1745,
+  "resumed": 2016,
+  "reused": false,
+  "shares": [
+   [
+    "MLKEM1024",
+    1568
+   ]
+  ],
+  "rshares": [
+   [
+    "MLKEM1024",
+    1568
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 0,
+  "srv_res": 0,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "OpenSSL default (TLS1.2+1.3, SNI)",
+  "groups": "classical X25519",
+  "full": 314,
+  "resumed": 585,
+  "reused": true,
+  "shares": [
+   [
+    "X25519",
+    32
+   ]
+  ],
+  "rshares": [
+   [
+    "X25519",
+    32
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 1151,
+  "srv_res": 441,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "OpenSSL default (TLS1.2+1.3, SNI)",
+  "groups": "OpenSSL 3.5 default (hybrid+X25519 shares)",
+  "full": 1548,
+  "resumed": 1819,
+  "reused": true,
+  "shares": [
+   [
+    "X25519MLKEM768",
+    1216
+   ],
+   [
+    "X25519",
+    32
+   ]
+  ],
+  "rshares": [
+   [
+    "X25519MLKEM768",
+    1216
+   ],
+   [
+    "X25519",
+    32
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 2217,
+  "srv_res": 1507,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "OpenSSL default (TLS1.2+1.3, SNI)",
+  "groups": "X25519MLKEM768 share only",
+  "full": 1500,
+  "resumed": 1771,
+  "reused": true,
+  "shares": [
+   [
+    "X25519MLKEM768",
+    1216
+   ]
+  ],
+  "rshares": [
+   [
+    "X25519MLKEM768",
+    1216
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 2217,
+  "srv_res": 1507,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "OpenSSL default (TLS1.2+1.3, SNI)",
+  "groups": "SecP256r1MLKEM768 only",
+  "full": 1523,
+  "resumed": 1794,
+  "reused": false,
+  "shares": [
+   [
+    "SecP256r1MLKEM768",
+    1249
+   ]
+  ],
+  "rshares": [
+   [
+    "SecP256r1MLKEM768",
+    1249
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 0,
+  "srv_res": 0,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "OpenSSL default (TLS1.2+1.3, SNI)",
+  "groups": "MLKEM768 only",
+  "full": 1458,
+  "resumed": 1729,
+  "reused": false,
+  "shares": [
+   [
+    "MLKEM768",
+    1184
+   ]
+  ],
+  "rshares": [
+   [
+    "MLKEM768",
+    1184
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 0,
+  "srv_res": 0,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "OpenSSL default (TLS1.2+1.3, SNI)",
+  "groups": "SecP384r1MLKEM1024 only",
+  "full": 1939,
+  "resumed": 2210,
+  "reused": false,
+  "shares": [
+   [
+    "SecP384r1MLKEM1024",
+    1665
+   ]
+  ],
+  "rshares": [
+   [
+    "SecP384r1MLKEM1024",
+    1665
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 0,
+  "srv_res": 0,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "OpenSSL default (TLS1.2+1.3, SNI)",
+  "groups": "MLKEM1024 only",
+  "full": 1842,
+  "resumed": 2113,
+  "reused": false,
+  "shares": [
+   [
+    "MLKEM1024",
+    1568
+   ]
+  ],
+  "rshares": [
+   [
+    "MLKEM1024",
+    1568
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 0,
+  "srv_res": 0,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "browser-like (SNI+ALPN h2)",
+  "groups": "classical X25519",
+  "full": 332,
+  "resumed": 603,
+  "reused": true,
+  "shares": [
+   [
+    "X25519",
+    32
+   ]
+  ],
+  "rshares": [
+   [
+    "X25519",
+    32
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 1152,
+  "srv_res": 441,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "browser-like (SNI+ALPN h2)",
+  "groups": "OpenSSL 3.5 default (hybrid+X25519 shares)",
+  "full": 1566,
+  "resumed": 1837,
+  "reused": true,
+  "shares": [
+   [
+    "X25519MLKEM768",
+    1216
+   ],
+   [
+    "X25519",
+    32
+   ]
+  ],
+  "rshares": [
+   [
+    "X25519MLKEM768",
+    1216
+   ],
+   [
+    "X25519",
+    32
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 2217,
+  "srv_res": 1507,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "browser-like (SNI+ALPN h2)",
+  "groups": "X25519MLKEM768 share only",
+  "full": 1518,
+  "resumed": 1789,
+  "reused": true,
+  "shares": [
+   [
+    "X25519MLKEM768",
+    1216
+   ]
+  ],
+  "rshares": [
+   [
+    "X25519MLKEM768",
+    1216
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 2217,
+  "srv_res": 1507,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "browser-like (SNI+ALPN h2)",
+  "groups": "SecP256r1MLKEM768 only",
+  "full": 1541,
+  "resumed": 1812,
+  "reused": false,
+  "shares": [
+   [
+    "SecP256r1MLKEM768",
+    1249
+   ]
+  ],
+  "rshares": [
+   [
+    "SecP256r1MLKEM768",
+    1249
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 0,
+  "srv_res": 0,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "browser-like (SNI+ALPN h2)",
+  "groups": "MLKEM768 only",
+  "full": 1476,
+  "resumed": 1747,
+  "reused": false,
+  "shares": [
+   [
+    "MLKEM768",
+    1184
+   ]
+  ],
+  "rshares": [
+   [
+    "MLKEM768",
+    1184
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 0,
+  "srv_res": 0,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "browser-like (SNI+ALPN h2)",
+  "groups": "SecP384r1MLKEM1024 only",
+  "full": 1957,
+  "resumed": 2228,
+  "reused": false,
+  "shares": [
+   [
+    "SecP384r1MLKEM1024",
+    1665
+   ]
+  ],
+  "rshares": [
+   [
+    "SecP384r1MLKEM1024",
+    1665
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 0,
+  "srv_res": 0,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ },
+ {
+  "profile": "browser-like (SNI+ALPN h2)",
+  "groups": "MLKEM1024 only",
+  "full": 1860,
+  "resumed": 2131,
+  "reused": false,
+  "shares": [
+   [
+    "MLKEM1024",
+    1568
+   ]
+  ],
+  "rshares": [
+   [
+    "MLKEM1024",
+    1568
+   ]
+  ],
+  "psk_ext": 267,
+  "srv_full": 0,
+  "srv_res": 0,
+  "modes": [
+   [
+    1
+   ]
+  ]
+ }
+]
