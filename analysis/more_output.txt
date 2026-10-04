@@ -1,0 +1,27 @@
+=== PASS D: rto_min = 50 ms, client->server 5% loss ===
+R=20: predicted T_RTO=70 T_RACK=25.0 T_tail=90   (default rto_min: T_RTO=220 T_tail=240)
+  X25519            n=1000 added=   4.8 [3.7,6.1] stalled= 5.3%  rto-cluster=45@74  head=0@0  tail=1@90
+  Hybrid one share  n=1000 added=   5.3 [4.2,6.6] stalled= 6.2%  rto-cluster=57@75  head=1@26  tail=0@0
+  Default two seg   n=1000 added=   6.6 [5.3,8.1] stalled= 8.8%  rto-cluster=0@0  head=42@30  tail=38@99
+  ratio two-seg/one-seg = 1.31 [0.99,1.71]  perm p=0.0291
+R=50: predicted T_RTO=150 T_RACK=62.5 T_tail=200   (default rto_min: T_RTO=250 T_tail=300)
+  X25519            n=1000 added=  10.2 [8.0,12.7] stalled= 6.1%  rto-cluster=52@146  head=5@106  tail=0@0
+  Hybrid one share  n=1000 added=   8.4 [6.3,10.5] stalled= 5.1%  rto-cluster=45@147  head=4@105  tail=0@0
+  Default two seg   n=1000 added=  12.7 [10.1,15.4] stalled=10.0%  rto-cluster=1@157  head=63@68  tail=32@205
+  ratio two-seg/one-seg = 1.36 [1.03,1.79]  perm p=0.0123
+=== PASS Abig: both directions, default rto_min, 2,000 per config ===
+R=50 p=0.02:
+  X25519: n=2000 mean=65.4 [61.1,70.5] p50=51.3 p90=52 p99=361
+  Hybrid one share: n=2000 mean=67.4 [64.5,70.5] p50=51.6 p90=53 p99=379
+  Default two seg: n=2000 mean=66.5 [63.9,69.1] p50=51.7 p90=59 p99=373
+  added-delay ratio two-seg/one-seg = 1.00 [0.78,1.29] perm p=0.4868   hybrid1/X25519 = 1.15 [0.80,1.72]
+R=50 p=0.05:
+  X25519: n=2000 mean=90.3 [84.2,96.9] p50=51.4 p90=307 p99=386
+  Hybrid one share: n=2000 mean=97.7 [89.7,107.2] p50=51.7 p90=318 p99=431
+  Default two seg: n=2000 mean=106.7 [97.0,118.3] p50=51.8 p90=354 p99=494
+  added-delay ratio two-seg/one-seg = 1.30 [1.03,1.63] perm p=0.0128   hybrid1/X25519 = 1.19 [0.92,1.53]
+R=100 p=0.05:
+  X25519: n=2000 mean=150.1 [142.5,158.5] p50=101.4 p90=409 p99=738
+  Hybrid one share: n=2000 mean=169.1 [158.4,180.3] p50=101.7 p90=420 p99=847
+  Default two seg: n=2000 mean=179.8 [167.3,193.9] p50=101.8 p90=361 p99=936
+  added-delay ratio two-seg/one-seg = 1.35 [1.10,1.66] perm p=0.0013   hybrid1/X25519 = 1.39 [1.10,1.76]

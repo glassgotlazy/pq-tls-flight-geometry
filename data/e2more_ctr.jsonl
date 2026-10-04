@@ -1,0 +1,9 @@
+{"pass_": "D", "rtt": 20, "p": 0.0, "dir": "c2s", "rto_min": 50, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"pass_": "D", "rtt": 20, "p": 0.05, "dir": "c2s", "rto_min": 50, "TCPLossProbes": 158, "TCPLossProbeRecovery": 136, "TCPTimeouts": 166, "TCPSackRecovery": 181}
+{"pass_": "D", "rtt": 50, "p": 0.0, "dir": "c2s", "rto_min": 50, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"pass_": "D", "rtt": 50, "p": 0.05, "dir": "c2s", "rto_min": 50, "TCPLossProbes": 143, "TCPLossProbeRecovery": 119, "TCPTimeouts": 143, "TCPSackRecovery": 239}
+{"pass_": "Abig", "rtt": 50, "p": 0.0, "dir": "both", "rto_min": 200, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"pass_": "Abig", "rtt": 50, "p": 0.02, "dir": "both", "rto_min": 200, "TCPLossProbes": 112, "TCPLossProbeRecovery": 102, "TCPTimeouts": 266, "TCPSackRecovery": 143}
+{"pass_": "Abig", "rtt": 50, "p": 0.05, "dir": "both", "rto_min": 200, "TCPLossProbes": 336, "TCPLossProbeRecovery": 268, "TCPTimeouts": 668, "TCPSackRecovery": 396}
+{"pass_": "Abig", "rtt": 100, "p": 0.0, "dir": "both", "rto_min": 200, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"pass_": "Abig", "rtt": 100, "p": 0.05, "dir": "both", "rto_min": 200, "TCPLossProbes": 326, "TCPLossProbeRecovery": 274, "TCPTimeouts": 653, "TCPSackRecovery": 357}
