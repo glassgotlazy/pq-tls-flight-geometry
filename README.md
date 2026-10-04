@@ -49,6 +49,8 @@ with 10,000 bootstrap resamples.
 `analysis/more_output.txt` (`python3 analysis/more.py | diff - analysis/more_output.txt` prints nothing). Each cell uses
 its own generator, `numpy.random.default_rng(zlib.crc32(<cell key>))`, with 10,000 bootstrap resamples and 10,000
 permutations. `data/e2more_ctr.jsonl` holds the client TCP counters per cell.
+Its last block reads `data/e2big.csv` as well and prints, from the unrounded data, how much lowering rto_min from 200 to
+50 ms reduces the two-segment added delay and the split penalty (paper Sections VI-B and VII).
 
 Kernel timer constants referenced in the paper: net/ipv4/tcp_output.c (tcp_schedule_loss_probe, lines 3063-3079),
 net/ipv4/tcp_input.c (tcp_rtt_estimator, lines 1095-1096), include/net/tcp.h (__tcp_set_rto, lines 834-837),

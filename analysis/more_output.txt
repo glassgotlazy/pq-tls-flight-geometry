@@ -25,3 +25,6 @@ R=100 p=0.05:
   Hybrid one share: n=2000 mean=169.1 [158.4,180.3] p50=101.7 p90=420 p99=847
   Default two seg: n=2000 mean=179.8 [167.3,193.9] p50=101.8 p90=361 p99=936
   added-delay ratio two-seg/one-seg = 1.35 [1.10,1.66] perm p=0.0013   hybrid1/X25519 = 1.39 [1.10,1.76]
+=== rto_min 200 ms (pass B, e2big.csv) -> 50 ms (pass D), 5% client->server loss; unrounded data ===
+R=20: two-seg added delay 17.21 -> 6.65 ms (-61.4%)   split penalty (two-seg minus pooled one-seg) 4.39 -> 1.58 ms (-64.1%)
+R=50: two-seg added delay 20.40 -> 12.68 ms (-37.9%)   split penalty (two-seg minus pooled one-seg) 3.71 -> 3.38 ms (-8.9%)

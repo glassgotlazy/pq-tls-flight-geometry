@@ -1,5 +1,6 @@
 # Analysis for pass D (rto_min causal test) and pass Abig (both directions, 2,000 per config). Per-cell seeded.
-# Usage (from the repository root):  python3 analysis/more.py [path/to/e2more.csv] > analysis/more_output.txt
+# Usage (from the repository root):  python3 analysis/more.py [path/to/e2more.csv [path/to/e2big.csv]] > analysis/more_output.txt
+# The last block compares pass D with pass B at default rto_min (data/e2big.csv, paper Table VI); no random numbers.
 import csv, collections, statistics as st, zlib, os, sys
 import numpy as np
 c=collections.defaultdict(list)
@@ -49,3 +50,18 @@ for R,p in [(50,0.02),(50,0.05),(100,0.05)]:
     h1=c[('Abig',R,p,200,'X25519MLKEM768:X25519')]; x=c[('Abig',R,p,200,'X25519')]
     lo2,hi2=boot_ratio([t-b0 for t in h1],[t-b0 for t in x],f'Ah{R}{p}')
     print(f'  added-delay ratio two-seg/one-seg = {st.mean(ex2)/st.mean(ex1):.2f} [{lo:.2f},{hi:.2f}] perm p={perm(ex2,ex1,f"Ar{R}{p}"):.4f}   hybrid1/X25519 = {st.mean([t-b0 for t in h1])/st.mean([t-b0 for t in x]):.2f} [{lo2:.2f},{hi2:.2f}]')
+BIG=sys.argv[2] if len(sys.argv)>2 else os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','data','e2big.csv')
+cb=collections.defaultdict(list)
+for x in csv.DictReader(open(BIG)):
+    if x['ok']!='1': continue
+    L=dict(kv.split('=') for kv in x['label'].split(';'))
+    cb[(int(L['rtt']),float(L['p']),x['group_cfg'])].append(float(x['t_tls_ms']))
+print('=== rto_min 200 ms (pass B, e2big.csv) -> 50 ms (pass D), 5% client->server loss; unrounded data ===')
+for R in [20,50]:
+    def add(src,g): b=st.median(src(0.0,g)); return [t-b for t in src(0.05,g)]
+    B=lambda p,g: cb[(R,p,g)]; Dd=lambda p,g: c[('D',R,p,50,g)]
+    res=[]
+    for src in (B,Dd):
+        two=st.mean(add(src,'default')); one=st.mean(add(src,'X25519')+add(src,'X25519MLKEM768:X25519')); res.append((two,two-one))
+    (t0,p0),(t1,p1)=res
+    print(f'R={R}: two-seg added delay {t0:.2f} -> {t1:.2f} ms (-{100*(1-t1/t0):.1f}%)   split penalty (two-seg minus pooled one-seg) {p0:.2f} -> {p1:.2f} ms (-{100*(1-p1/p0):.1f}%)')
