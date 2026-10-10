@@ -1,0 +1,30 @@
+=== PASS D: rto_min = 50 ms, client->server 5% loss ===
+R=20: predicted T_RTO=70 T_RACK=25.0 T_tail=90   (default rto_min: T_RTO=220 T_tail=240)
+  X25519            n=1000 added=   5.8 [4.6,7.2] stalled= 6.9%  rto-cluster=35@75  head=5@22  tail=18@97
+  Hybrid one share  n=1000 added=   6.3 [4.6,8.3] stalled= 6.4%  rto-cluster=35@75  head=2@29  tail=8@97
+  Default two seg   n=1000 added=   8.9 [7.2,10.6] stalled=12.3%  rto-cluster=2@64  head=53@31  tail=37@98
+  ratio two-seg/one-seg = 1.46 [1.12,1.91]  perm p=0.0047
+R=50: predicted T_RTO=150 T_RACK=62.5 T_tail=200   (default rto_min: T_RTO=250 T_tail=300)
+  X25519            n=1000 added=   9.0 [6.8,11.3] stalled= 5.4%  rto-cluster=51@147  head=0@0  tail=0@0
+  Hybrid one share  n=1000 added=  11.1 [8.7,13.5] stalled= 6.9%  rto-cluster=57@147  head=5@105  tail=3@211
+  Default two seg   n=1000 added=  17.4 [14.2,20.6] stalled=11.4%  rto-cluster=1@156  head=52@69  tail=57@206
+  ratio two-seg/one-seg = 1.74 [1.35,2.23]  perm p=0.0001
+=== PASS Abig: both directions, default rto_min, 2,000 per config ===
+R=50 p=0.02:
+  X25519: n=2000 mean=64.0 [61.0,67.4] p50=51.8 p90=53 p99=323
+  Hybrid one share: n=2000 mean=68.5 [65.1,72.5] p50=52.1 p90=53 p99=373
+  Default two seg: n=2000 mean=68.2 [65.3,71.3] p50=52.2 p90=53 p99=381
+  added-delay ratio two-seg/one-seg = 1.14 [0.87,1.46] perm p=0.1784   hybrid1/X25519 = 1.37 [0.97,1.95]
+R=50 p=0.05:
+  X25519: n=2000 mean=94.8 [83.8,110.4] p50=52.1 p90=301 p99=383
+  Hybrid one share: n=2000 mean=104.3 [95.7,113.6] p50=52.4 p90=309 p99=615
+  Default two seg: n=2000 mean=114.4 [101.4,131.4] p50=52.6 p90=357 p99=645
+  added-delay ratio two-seg/one-seg = 1.31 [0.98,1.76] perm p=0.0416   hybrid1/X25519 = 1.22 [0.85,1.74]
+R=100 p=0.05:
+  X25519: n=2000 mean=143.2 [136.1,151.0] p50=102.1 p90=133 p99=747
+  Hybrid one share: n=2000 mean=162.3 [154.7,170.6] p50=102.3 p90=416 p99=833
+  Default two seg: n=2000 mean=180.3 [168.0,195.8] p50=102.4 p90=507 p99=838
+  added-delay ratio two-seg/one-seg = 1.54 [1.26,1.92] perm p=0.0001   hybrid1/X25519 = 1.47 [1.17,1.84]
+=== rto_min 200 ms (pass B, e2big.csv) -> 50 ms (pass D), 5% client->server loss; unrounded data ===
+R=20: two-seg added delay 16.18 -> 8.86 ms (-45.2%)   split penalty (two-seg minus pooled one-seg) 3.42 -> 2.79 ms (-18.5%)
+R=50: two-seg added delay 21.79 -> 17.39 ms (-20.2%)   split penalty (two-seg minus pooled one-seg) 6.46 -> 7.37 ms (--14.1%)
