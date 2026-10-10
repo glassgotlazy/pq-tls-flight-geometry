@@ -1,0 +1,42 @@
+# big.py: data/e2big.csv; bootstrap B=10000, permutations B=10000, per-cell seed = 1000*R + round(100*p); numpy 2.3.5
+R= 20 p=0.05 x  n=2000 mean=  13.1 stall= 5.8% p99=   250 rto=93@223 head=2@23 tail=102@224
+R= 20 p=0.05 h1 n=2000 mean=  12.5 stall= 5.5% p99=   250 rto=93@224 head=1@23 tail=96@224
+R= 20 p=0.05 d  n=2000 mean=  16.2 stall=10.8% p99=   275 rto=0@0 head=97@31 tail=101@248
+   ratio default/one-seg = 1.27 [1.02,1.55] perm p=0.0118 (k=117/10000, (k+1)/(B+1)=0.01180)   hybrid1/x25519 = 0.95 [0.73,1.24]
+R= 20 p=0.10 x  n=2000 mean=  41.5 stall=13.4% p99=   468 rto=213@223 head=2@25 tail=232@224
+R= 20 p=0.10 h1 n=2000 mean=  31.0 stall=12.4% p99=   469 rto=185@224 head=2@27 tail=208@224
+R= 20 p=0.10 d  n=2000 mean=  36.6 stall=22.2% p99=   299 rto=3@237 head=174@32 tail=211@248
+   ratio default/one-seg = 1.01 [0.77,1.27] perm p=0.3626 (k=3625/10000, (k+1)/(B+1)=0.36256)   hybrid1/x25519 = 0.75 [0.49,1.07]
+R= 50 p=0.05 x  n=2000 mean=  14.3 stall= 5.6% p99=   326 rto=87@250 head=4@105 tail=19@276
+R= 50 p=0.05 h1 n=2000 mean=  16.4 stall= 5.9% p99=   324 rto=95@251 head=2@106 tail=18@272
+R= 50 p=0.05 d  n=2000 mean=  21.8 stall=10.7% p99=   381 rto=0@0 head=103@68 tail=100@314
+   ratio default/one-seg = 1.42 [1.15,1.76] perm p=0.0008 (k=7/10000, (k+1)/(B+1)=0.00080)   hybrid1/x25519 = 1.15 [0.88,1.53]
+R= 50 p=0.10 x  n=2000 mean=  37.6 stall=12.9% p99=   554 rto=171@251 head=9@106 tail=64@274
+R= 50 p=0.10 h1 n=2000 mean=  32.7 stall=11.5% p99=   554 rto=157@250 head=13@105 tail=34@275
+R= 50 p=0.10 d  n=2000 mean=  47.1 stall=20.4% p99=   469 rto=0@0 head=169@68 tail=197@319
+   ratio default/one-seg = 1.34 [1.16,1.54] perm p=< 0.0001 (k=0/10000, (k+1)/(B+1)=0.00010)   hybrid1/x25519 = 0.87 [0.72,1.04]
+R=100 p=0.05 x  n=2000 mean=  19.5 stall= 5.8% p99=   437 rto=72@312 head=4@206 tail=8@425
+R=100 p=0.05 h1 n=2000 mean=  15.3 stall= 4.5% p99=   429 rto=66@314 head=3@206 tail=2@383
+R=100 p=0.05 d  n=2000 mean=  28.9 stall= 9.6% p99=   540 rto=2@306 head=88@130 tail=91@425
+   ratio default/one-seg = 1.66 [1.35,2.04] perm p=< 0.0001 (k=0/10000, (k+1)/(B+1)=0.00010)   hybrid1/x25519 = 0.78 [0.59,1.03]
+R=100 p=0.10 x  n=2000 mean=  43.6 stall=12.5% p99=   631 rto=144@313 head=19@206 tail=12@364
+R=100 p=0.10 h1 n=2000 mean=  44.8 stall=12.3% p99=   545 rto=153@313 head=7@206 tail=10@360
+R=100 p=0.10 d  n=2000 mean=  61.2 stall=20.0% p99=   745 rto=16@306 head=193@131 tail=147@421
+   ratio default/one-seg = 1.38 [1.20,1.59] perm p=< 0.0001 (k=0/10000, (k+1)/(B+1)=0.00010)   hybrid1/x25519 = 1.03 [0.86,1.23]
+R=200 p=0.05 x  n=2000 mean=  37.8 stall= 5.5% p99=   836 rto=92@618 head=5@426 tail=3@815
+R=200 p=0.05 h1 n=2000 mean=  42.4 stall= 6.3% p99=   835 rto=107@618 head=5@424 tail=2@834
+R=200 p=0.05 d  n=2000 mean=  67.5 stall=11.1% p99=  1038 rto=2@619 head=105@258 tail=100@822
+   ratio default/one-seg = 1.68 [1.39,2.03] perm p=< 0.0001 (k=0/10000, (k+1)/(B+1)=0.00010)   hybrid1/x25519 = 1.12 [0.88,1.44]
+R=200 p=0.10 x  n=2000 mean=  77.7 stall=10.7% p99=  1248 rto=166@616 head=11@413 tail=5@818
+R=200 p=0.10 h1 n=2000 mean=  85.4 stall=11.3% p99=  1428 rto=162@618 head=11@416 tail=11@824
+R=200 p=0.10 d  n=2000 mean= 120.9 stall=19.2% p99=  1626 rto=15@618 head=174@257 tail=156@822
+   ratio default/one-seg = 1.48 [1.28,1.71] perm p=< 0.0001 (k=0/10000, (k+1)/(B+1)=0.00010)   hybrid1/x25519 = 1.10 [0.91,1.33]
+{"rtt": 20, "p": 0.0, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"rtt": 20, "p": 0.05, "TCPLossProbes": 329, "TCPLossProbeRecovery": 280, "TCPTimeouts": 363, "TCPSackRecovery": 387}
+{"rtt": 50, "p": 0.0, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"rtt": 50, "p": 0.05, "TCPLossProbes": 323, "TCPLossProbeRecovery": 270, "TCPTimeouts": 383, "TCPSackRecovery": 421}
+{"rtt": 100, "p": 0.0, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"rtt": 100, "p": 0.05, "TCPLossProbes": 316, "TCPLossProbeRecovery": 271, "TCPTimeouts": 346, "TCPSackRecovery": 385}
+{"rtt": 200, "p": 0.0, "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"rtt": 200, "p": 0.05, "TCPLossProbes": 285, "TCPLossProbeRecovery": 228, "TCPTimeouts": 374, "TCPSackRecovery": 435}
+{"rtt": 20, "p": 0.1, "TCPLossProbes": 679, "TCPLossProbeRecovery": 492, "TCPTimeouts": 802, "TCPSackRecovery": 784}
