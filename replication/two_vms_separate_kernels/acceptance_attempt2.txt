@@ -1,0 +1,4 @@
+x  n=300 median_excess=2.086 IQR=0.865 p99=6.854 min=1.087 max=9.908  PASS
+h1 n=300 median_excess=2.338 IQR=0.999 p99=9.472 min=1.236 max=12.659  PASS
+d  n=300 median_excess=2.339 IQR=0.780 p99=7.690 min=1.182 max=10.814  PASS
+ACCEPTANCE: PASS

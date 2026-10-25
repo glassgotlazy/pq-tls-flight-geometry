@@ -1,0 +1,4 @@
+x  n=300 median_excess=2.719 IQR=1.383 p99=16.426 min=1.547 max=29.423  FAIL
+h1 n=300 median_excess=3.113 IQR=1.704 p99=14.762 min=1.599 max=21.659  FAIL
+d  n=300 median_excess=3.294 IQR=2.146 p99=13.585 min=1.515 max=17.922  FAIL
+ACCEPTANCE: FAIL

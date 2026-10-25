@@ -1,0 +1,37 @@
+rows read / dropped (ok!=1) per (pass,R,p,cfg):
+  ('TH-wslns', 20, 0.0, 'd'): rows=300 dropped=0
+  ('TH-wslns', 20, 0.0, 'h1'): rows=300 dropped=0
+  ('TH-wslns', 20, 0.0, 'x'): rows=300 dropped=0
+  ('TH-wslns', 20, 0.05, 'd'): rows=2000 dropped=0
+  ('TH-wslns', 20, 0.05, 'h1'): rows=2000 dropped=0
+  ('TH-wslns', 20, 0.05, 'x'): rows=2000 dropped=0
+  ('TH-wslns', 50, 0.0, 'd'): rows=300 dropped=0
+  ('TH-wslns', 50, 0.0, 'h1'): rows=300 dropped=0
+  ('TH-wslns', 50, 0.0, 'x'): rows=300 dropped=0
+  ('TH-wslns', 50, 0.05, 'd'): rows=2000 dropped=0
+  ('TH-wslns', 50, 0.05, 'h1'): rows=2000 dropped=0
+  ('TH-wslns', 50, 0.05, 'x'): rows=2000 dropped=0
+total rows=13800 dropped=0
+
+=== TH-wslns R=20 p=0.05  T_RTO=220 ms  stall threshold=15 ms
+  x  n=2000 base_median=21.304 mean_added=  11.89 stall= 5.20% (104) p90=   1.33 p99=  225.6 head=0@0.0 rto=91@223.1 tail=94@223.4
+  h1 n=2000 base_median=21.526 mean_added=  12.07 stall= 5.10% (102) p90=   1.46 p99=  227.3 head=0@0.0 rto=83@222.9 tail=88@223.2
+  d  n=2000 base_median=21.538 mean_added=   8.57 stall= 5.45% (109) p90=   1.51 p99=  273.3 head=5@20.4 rto=2@231.6 tail=5@237.7
+  pooled x+h1 n=4000 mean_added=11.98 stall=5.15% head=0@0.0 tail=182@223.2
+  ratio d/(x+h1) = 0.715 [0.545,0.924]  perm p=0.99500  Fisher(one-sided, stalls) p=0.332
+=== TH-wslns R=50 p=0.05  T_RTO=250 ms  stall threshold=30 ms
+  x  n=2000 base_median=51.873 mean_added=  18.33 stall= 6.45% (129) p90=   3.51 p99=  274.2 head=3@105.4 rto=102@249.8 tail=21@273.5
+  h1 n=2000 base_median=52.076 mean_added=  16.63 stall= 6.10% (122) p90=  12.16 p99=  268.4 head=3@104.9 rto=100@250.4 tail=16@272.8
+  d  n=2000 base_median=52.224 mean_added=  12.84 stall= 5.60% (112) p90=   1.09 p99=  358.6 head=8@105.1 rto=0@0.0 tail=7@273.9
+  pooled x+h1 n=4000 mean_added=17.48 stall=6.28% head=6@105.2 tail=37@273.2
+  ratio d/(x+h1) = 0.735 [0.569,0.934]  perm p=0.99450  Fisher(one-sided, stalls) p=0.863
+
+netstat TcpExt deltas on nsA (after - before), per cell:
+  TH-wslns_R20_p0.05: TCPLossProbes=292 TCPLossProbeRecovery=163 TCPTimeouts=388 TCPSackRecovery=376
+  TH-wslns_R20_p0: TCPLossProbes=0 TCPLossProbeRecovery=0 TCPTimeouts=0 TCPSackRecovery=0
+  TH-wslns_R50_p0.05: TCPLossProbes=348 TCPLossProbeRecovery=208 TCPTimeouts=364 TCPSackRecovery=363
+  TH-wslns_R50_p0: TCPLossProbes=0 TCPLossProbeRecovery=0 TCPTimeouts=0 TCPSackRecovery=0
+
+SUMMARY ROWS (Setup | R | Stalled two/one seg (%) | Ratio [95% CI] | perm p | head/tail cluster medians (ms))
+| TH-wslns p=0.05 | 20 | 5.5 / 5.1 | 0.72 [0.54, 0.92] | 0.9950 | d 20.4/237.7; x+h1 0.0/223.2 |
+| TH-wslns p=0.05 | 50 | 5.6 / 6.3 | 0.73 [0.57, 0.93] | 0.9945 | d 105.1/273.9; x+h1 105.2/273.2 |

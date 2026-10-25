@@ -1,0 +1,2 @@
+{"pass_": "K", "rtt": 50, "p": 0.0, "loss": "nft", "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"pass_": "K", "rtt": 50, "p": 0.05, "loss": "nft", "TCPLossProbes": 320, "TCPLossProbeRecovery": 270, "TCPTimeouts": 369, "TCPSackRecovery": 385}

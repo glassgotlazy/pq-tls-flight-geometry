@@ -1,0 +1,4 @@
+R=20 rto_min=200: measured penalty 4.39 ms [1.21, 7.66]  model 2.69 ms  n2=2000 n1=4000
+R=20 rto_min=50: measured penalty 1.58 ms [-0.04, 3.26]  model 2.31 ms  n2=1000 n1=2000
+R=50 rto_min=200: measured penalty 3.71 ms [-0.09, 7.56]  model 5.97 ms  n2=2000 n1=4000
+R=50 rto_min=50: measured penalty 3.38 ms [0.32, 6.51]  model 5.72 ms  n2=1000 n1=2000

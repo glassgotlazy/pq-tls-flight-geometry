@@ -1,0 +1,149 @@
+{
+ "setup": "SINGLE-HOST STAND-IN: WSL2 VM, three network namespaces nsA (client) - nsR (router) - nsB (server) joined by veth pairs; NOT two physical hosts",
+ "label_pass": "KN",
+ "kernel": "6.6.87.2-microsoft-standard-WSL2",
+ "cpus": 18,
+ "distro": "Ubuntu 26.04 LTS (WSL2)",
+ "topology": {
+  "nsA": "vA 10.77.1.1/24, default via 10.77.1.254",
+  "nsR": "vRa 10.77.1.254/24, vRb 10.77.2.254/24, ip_forward=1",
+  "nsB": "vB 10.77.2.2/24, default via 10.77.2.254",
+  "mtu": 1500
+ },
+ "netem": "nsR vRb (toward server): delay R/2 [loss p] limit 10000; nsR vRa (toward client): delay R/2 limit 10000; vA and vB: noqueue (no netem)",
+ "offloads_set": "gso off, tso off, gro off on vA, vRa, vRb, vB",
+ "settings_verified": [
+  "== nsA vA",
+  "tcp-segmentation-offload: off",
+  "generic-segmentation-offload: off",
+  "generic-receive-offload: off",
+  "== nsR vRa",
+  "tcp-segmentation-offload: off",
+  "generic-segmentation-offload: off",
+  "generic-receive-offload: off",
+  "== nsR vRb",
+  "tcp-segmentation-offload: off",
+  "generic-segmentation-offload: off",
+  "generic-receive-offload: off",
+  "== nsB vB",
+  "tcp-segmentation-offload: off",
+  "generic-segmentation-offload: off",
+  "generic-receive-offload: off",
+  "nsA.tcp_congestion_control=cubic",
+  "nsA.tcp_early_retrans=3",
+  "nsA.tcp_recovery=1",
+  "nsA.tcp_timestamps=1",
+  "nsA.tcp_sack=1",
+  "nsA.ip_forward=0",
+  "nsR.tcp_congestion_control=cubic",
+  "nsR.tcp_early_retrans=3",
+  "nsR.tcp_recovery=1",
+  "nsR.tcp_timestamps=1",
+  "nsR.tcp_sack=1",
+  "nsR.ip_forward=1",
+  "nsB.tcp_congestion_control=cubic",
+  "nsB.tcp_early_retrans=3",
+  "nsB.tcp_recovery=1",
+  "nsB.tcp_timestamps=1",
+  "nsB.tcp_sack=1",
+  "nsB.ip_forward=0",
+  "nsA vA qdisc: qdisc noqueue 0: root refcnt 2 ",
+  "nsB vB qdisc: qdisc noqueue 0: root refcnt 2 "
+ ],
+ "sysctls_root_ns_before": {
+  "tcp_congestion_control": "cubic",
+  "tcp_early_retrans": "3",
+  "tcp_recovery": "1",
+  "tcp_timestamps": "1",
+  "tcp_sack": "1",
+  "ip_forward": "0"
+ },
+ "sysctls_root_ns_after": {
+  "tcp_congestion_control": "cubic",
+  "tcp_early_retrans": "3",
+  "tcp_recovery": "1",
+  "tcp_timestamps": "1",
+  "tcp_sack": "1",
+  "ip_forward": "0"
+ },
+ "sysctls_test_ns_defaults": {
+  "nsA.default.tcp_congestion_control": "cubic",
+  "nsA.default.tcp_early_retrans": "3",
+  "nsA.default.tcp_recovery": "1",
+  "nsA.default.tcp_timestamps": "1",
+  "nsA.default.tcp_sack": "1",
+  "nsR.default.tcp_congestion_control": "cubic",
+  "nsR.default.tcp_early_retrans": "3",
+  "nsR.default.tcp_recovery": "1",
+  "nsR.default.tcp_timestamps": "1",
+  "nsR.default.tcp_sack": "1",
+  "nsB.default.tcp_congestion_control": "cubic",
+  "nsB.default.tcp_early_retrans": "3",
+  "nsB.default.tcp_recovery": "1",
+  "nsB.default.tcp_timestamps": "1",
+  "nsB.default.tcp_sack": "1"
+ },
+ "rto_min": "default (200 ms), no route override",
+ "baseline_rtt_50_pings": [
+  "50 packets transmitted, 50 received, 0% packet loss, time 1177ms",
+  "rtt min/avg/max/mdev = 0.038/0.073/0.205/0.028 ms"
+ ],
+ "ping_checks_per_cell": {
+  "KN_R20_p0.05": [
+   "# KN_R20_p0.05 2026-10-25T16:52:03Z",
+   "qdisc netem 8003: root refcnt 19 limit 10000 delay 10ms loss 5% seed 6462393777660374065",
+   "qdisc netem 8004: root refcnt 19 limit 10000 delay 10ms seed 2797111848724467828",
+   "nsA vA: qdisc noqueue 0: root refcnt 2 ",
+   "nsB vB: qdisc noqueue 0: root refcnt 2 ",
+   "20 packets transmitted, 19 received, 5% packet loss, time 964ms",
+   "rtt min/avg/max/mdev = 20.111/20.250/20.416/0.075 ms"
+  ],
+  "KN_R20_p0": [
+   "# KN_R20_p0 2026-10-25T16:51:55Z",
+   "qdisc netem 8003: root refcnt 19 limit 10000 delay 10ms seed 16016188153360237219",
+   "qdisc netem 8004: root refcnt 19 limit 10000 delay 10ms seed 5918034340469899505",
+   "nsA vA: qdisc noqueue 0: root refcnt 2 ",
+   "nsB vB: qdisc noqueue 0: root refcnt 2 ",
+   "20 packets transmitted, 20 received, 0% packet loss, time 961ms",
+   "rtt min/avg/max/mdev = 20.132/20.286/20.560/0.100 ms"
+  ],
+  "KN_R50_p0.05": [
+   "# KN_R50_p0.05 2026-10-25T16:54:26Z",
+   "qdisc netem 8003: root refcnt 19 limit 10000 delay 25ms loss 5% seed 15127609275402622880",
+   "qdisc netem 8004: root refcnt 19 limit 10000 delay 25ms seed 7507988357136016551",
+   "nsA vA: qdisc noqueue 0: root refcnt 2 ",
+   "nsB vB: qdisc noqueue 0: root refcnt 2 ",
+   "20 packets transmitted, 20 received, 0% packet loss, time 958ms",
+   "rtt min/avg/max/mdev = 50.137/50.315/50.687/0.109 ms"
+  ],
+  "KN_R50_p0": [
+   "# KN_R50_p0 2026-10-25T16:54:09Z",
+   "qdisc netem 8003: root refcnt 19 limit 10000 delay 25ms seed 17810785026781017697",
+   "qdisc netem 8004: root refcnt 19 limit 10000 delay 25ms seed 4135027337468719454",
+   "nsA vA: qdisc noqueue 0: root refcnt 2 ",
+   "nsB vB: qdisc noqueue 0: root refcnt 2 ",
+   "20 packets transmitted, 20 received, 0% packet loss, time 957ms",
+   "rtt min/avg/max/mdev = 50.154/50.248/50.468/0.076 ms"
+  ]
+ },
+ "clienthello_capture": "out/capture_vRa_in.txt, out/capture_vRb_out.txt: default ClientHello = 2 packets, TCP payload 1448 (SNI present) + 45, before and after netem",
+ "openssl": "OpenSSL 3.5.4 30 Sep 2025 at /opt/ossl35 (pre-existing install; not rebuilt, tarball SHA-256 not verified in this session)",
+ "probe": {
+  "source": "testbed/hs.c from pq-tls-flight-geometry repo copy (hs2.c unavailable)",
+  "sha256": "1f70c89e058b0ff739c4a17014077eb8815dbb0597e2b405d2fbcfc0807a3846"
+ },
+ "teardown": {
+  "date_utc": "2026-10-25T17:00:09Z",
+  "netns_after": "",
+  "veth_left": "0",
+  "netem_loaded_after": "0",
+  "servers_left": "0",
+  "rootns.tcp_congestion_control": "cubic",
+  "rootns.tcp_early_retrans": "3",
+  "rootns.tcp_recovery": "1",
+  "rootns.tcp_timestamps": "1",
+  "rootns.tcp_sack": "1",
+  "rootns.ip_forward": "0"
+ },
+ "criterion3": "partly met: d head cluster at 30.4 ms (R=20) / 68.7 ms (R=50), about +5.5 ms above the 1.25R prediction; tail 246.9 / 318.6 ms; d stalls at T_RTO 2 / 0. Ratio withheld from SUMMARY.md per instruction."
+}

@@ -1,0 +1,5 @@
+cfg=X25519 50 handshakes: netem_dequeued_pkts=501 netem_bytes=49192 vB_rx_pkts=501 avg_bytes_per_netem_pkt=98
+cfg=default 50 handshakes: netem_dequeued_pkts=1101 netem_bytes=166642 vB_rx_pkts=600 avg_bytes_per_netem_pkt=151
+generic-segmentation-offload: off
+sch_netem unloaded
+netem_loaded=0 netns=0

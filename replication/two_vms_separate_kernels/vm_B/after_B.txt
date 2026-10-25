@@ -1,0 +1,13 @@
+sysctl.net.ipv4.tcp_congestion_control=cubic
+sysctl.net.ipv4.tcp_early_retrans=3
+sysctl.net.ipv4.tcp_recovery=1
+sysctl.net.ipv4.tcp_timestamps=1
+sysctl.net.ipv4.tcp_sack=1
+sysctl.net.ipv4.ip_forward=0
+ethtool.test0.tcp-segmentation-offload=on
+ethtool.test0.generic-segmentation-offload=on
+ethtool.test0.generic-receive-offload=on
+ethtool.test0.large-receive-offload=on
+tc.test0=qdisc mq 0: root |qdisc fq_codel 0: parent :2 limit 10240p flows 1024 quantum 1514 target 5ms interval 100ms memory_limit 32Mb ecn drop_batch 64 |qdisc fq_codel 0: parent :1 limit 10240p flows 1024 quantum 1514 target 5ms interval 100ms memory_limit 32Mb ecn drop_batch 64 |
+routes=default via 192.168.6.2 dev mgmt0 proto dhcp src 192.168.6.130 metric 100 |192.168.6.0/24 dev mgmt0 proto kernel scope link src 192.168.6.130 metric 100 |192.168.6.2 dev mgmt0 proto dhcp scope link src 192.168.6.130 metric 100 |192.168.77.0/24 dev test0 proto kernel scope link src 192.168.77.2 |
+servers_left=0

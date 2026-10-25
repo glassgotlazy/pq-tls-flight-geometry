@@ -1,0 +1,2 @@
+{"pass_": "S", "rtt": 50, "p": 0.0, "loss": "imp", "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"pass_": "S", "rtt": 50, "p": 0.05, "loss": "imp", "TCPLossProbes": 886, "TCPLossProbeRecovery": 752, "TCPTimeouts": 765, "TCPSackRecovery": 681}

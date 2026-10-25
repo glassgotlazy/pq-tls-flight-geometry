@@ -1,0 +1,6 @@
+paper R=20 X25519     stalls=116 retrans_mean=1.03 dist={0: 10, 1: 94, 2: 11, 3: 1}
+paper R=20 X25519MLKE stalls=106 retrans_mean=0.97 dist={0: 10, 1: 89, 2: 7}
+paper R=20 default    stalls=218 retrans_mean=1.12 dist={0: 10, 1: 175, 2: 30, 3: 3}
+paper R=50 X25519     stalls=114 retrans_mean=1.04 dist={0: 10, 1: 91, 2: 12, 3: 1}
+paper R=50 X25519MLKE stalls=120 retrans_mean=1.01 dist={0: 11, 1: 99, 2: 9, 4: 1}
+paper R=50 default    stalls=210 retrans_mean=1.14 dist={0: 9, 1: 169, 2: 26, 3: 6}

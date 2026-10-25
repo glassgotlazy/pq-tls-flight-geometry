@@ -1,0 +1,37 @@
+rows read / dropped (ok!=1) per (pass,R,p,cfg):
+  ('KN', 20, 0.0, 'd'): rows=300 dropped=0
+  ('KN', 20, 0.0, 'h1'): rows=300 dropped=0
+  ('KN', 20, 0.0, 'x'): rows=300 dropped=0
+  ('KN', 20, 0.05, 'd'): rows=2000 dropped=0
+  ('KN', 20, 0.05, 'h1'): rows=2000 dropped=0
+  ('KN', 20, 0.05, 'x'): rows=2000 dropped=0
+  ('KN', 50, 0.0, 'd'): rows=300 dropped=0
+  ('KN', 50, 0.0, 'h1'): rows=300 dropped=0
+  ('KN', 50, 0.0, 'x'): rows=300 dropped=0
+  ('KN', 50, 0.05, 'd'): rows=2000 dropped=0
+  ('KN', 50, 0.05, 'h1'): rows=2000 dropped=0
+  ('KN', 50, 0.05, 'x'): rows=2000 dropped=0
+total rows=13800 dropped=0
+
+=== KN R=20 p=0.05  T_RTO=220 ms  stall threshold=15 ms
+  x  n=2000 base_median=21.394 mean_added=  15.47 stall= 6.55% (131) p90=   8.64 p99=  228.1 head=0@0.0 rto=113@222.8 tail=119@222.8
+  h1 n=2000 base_median=21.730 mean_added=  12.65 stall= 5.05% (101) p90=   1.16 p99=  224.8 head=0@0.0 rto=85@222.6 tail=88@222.7
+  d  n=2000 base_median=21.774 mean_added=  16.71 stall=10.85% (217) p90=  29.04 p99=  248.4 head=88@30.4 rto=2@237.4 tail=108@246.9
+  pooled x+h1 n=4000 mean_added=14.06 stall=5.80% head=0@0.0 tail=207@222.8
+  ratio d/(x+h1) = 1.189 [0.970,1.451]  perm p=0.04850  Fisher(one-sided, stalls) p=5.74e-12
+=== KN R=50 p=0.05  T_RTO=250 ms  stall threshold=30 ms
+  x  n=2000 base_median=51.594 mean_added=  14.50 stall= 4.95% (99) p90=   1.08 p99=  268.5 head=3@104.6 rto=78@250.3 tail=15@274.9
+  h1 n=2000 base_median=51.798 mean_added=  14.83 stall= 5.30% (106) p90=   1.47 p99=  268.8 head=6@106.7 rto=85@251.1 tail=17@271.7
+  d  n=2000 base_median=51.889 mean_added=  23.14 stall=10.30% (206) p90=  51.01 p99=  333.7 head=93@68.7 rto=0@0.0 tail=96@318.6
+  pooled x+h1 n=4000 mean_added=14.66 stall=5.12% head=9@106.0 tail=32@274.3
+  ratio d/(x+h1) = 1.578 [1.271,1.942]  perm p=0.00010  Fisher(one-sided, stalls) p=2.42e-13
+
+netstat TcpExt deltas on nsA (after - before), per cell:
+  KN_R20_p0.05: TCPLossProbes=334 TCPLossProbeRecovery=276 TCPTimeouts=387 TCPSackRecovery=404
+  KN_R20_p0: TCPLossProbes=0 TCPLossProbeRecovery=0 TCPTimeouts=0 TCPSackRecovery=0
+  KN_R50_p0.05: TCPLossProbes=305 TCPLossProbeRecovery=250 TCPTimeouts=364 TCPSackRecovery=401
+  KN_R50_p0: TCPLossProbes=0 TCPLossProbeRecovery=0 TCPTimeouts=0 TCPSackRecovery=0
+
+SUMMARY ROWS (Setup | R | Stalled two/one seg (%) | Ratio [95% CI] | perm p | head/tail cluster medians (ms))
+| KN p=0.05 | 20 | 10.8 / 5.8 | 1.19 [0.97, 1.45] | 0.0485 | d 30.4/246.9; x+h1 0.0/222.8 |
+| KN p=0.05 | 50 | 10.3 / 5.1 | 1.58 [1.27, 1.94] | 0.0001 | d 68.7/318.6; x+h1 106.0/274.3 |

@@ -1,0 +1,12 @@
+Host pqa
+  HostName 192.168.6.129
+Host pqb
+  HostName 192.168.6.130
+Host pqa pqb
+  User ubuntu
+  IdentityFile <HOME>/.ssh/id_ed25519_pqvm
+  IdentitiesOnly yes
+  UserKnownHostsFile <HOME>/VMs/pqtls/cfg/known_hosts
+  StrictHostKeyChecking accept-new
+  ConnectTimeout 10
+  ServerAliveInterval 15

@@ -1,0 +1,117 @@
+{
+ "setup": "SINGLE-HOST STAND-IN: WSL2 VM, two network namespaces (nsA client, nsB server) joined by veth; NOT two physical hosts",
+ "label_pass": "TH-wslns",
+ "kernel": "6.6.87.2-microsoft-standard-WSL2",
+ "cpus": 18,
+ "distro": "Ubuntu 26.04 LTS (WSL2)",
+ "nic": {
+  "A": "vA (veth, in nsA, 10.77.0.1/24)",
+  "B": "vB (veth, in nsB, 10.77.0.2/24)",
+  "mtu": 1500
+ },
+ "offloads_set": {
+  "vA": {
+   "gso": "off",
+   "tso": "off",
+   "gro": "off"
+  },
+  "vB": {
+   "gso": "off",
+   "tso": "off",
+   "gro": "off"
+  }
+ },
+ "sysctls_root_ns_before": {
+  "tcp_congestion_control": "cubic",
+  "tcp_available_congestion_control": "reno cubic",
+  "tcp_early_retrans": "3",
+  "tcp_recovery": "1",
+  "tcp_timestamps": "1",
+  "tcp_sack": "1"
+ },
+ "sysctls_root_ns_after": {
+  "tcp_congestion_control": "cubic",
+  "tcp_early_retrans": "3",
+  "tcp_recovery": "1",
+  "tcp_timestamps": "1",
+  "tcp_sack": "1"
+ },
+ "sysctls_test_ns": {
+  "nsA.default.tcp_congestion_control": "cubic",
+  "nsA.default.tcp_early_retrans": "3",
+  "nsA.default.tcp_recovery": "1",
+  "nsA.default.tcp_timestamps": "1",
+  "nsA.default.tcp_sack": "1",
+  "nsB.default.tcp_congestion_control": "cubic",
+  "nsB.default.tcp_early_retrans": "3",
+  "nsB.default.tcp_recovery": "1",
+  "nsB.default.tcp_timestamps": "1",
+  "nsB.default.tcp_sack": "1"
+ },
+ "rto_min": "default (200 ms), no route override",
+ "netem": "A egress: delay R/2 [loss p] limit 10000; B egress: delay R/2 limit 10000",
+ "baseline_rtt_50_pings": [
+  "50 packets transmitted, 50 received, 0% packet loss, time 1174ms",
+  "rtt min/avg/max/mdev = 0.043/0.075/0.533/0.067 ms"
+ ],
+ "ping_checks_per_cell": {
+  "TH-wslns_R20_p0.05": {
+   "qdisc": [
+    "qdisc netem 8001: root refcnt 19 limit 10000 delay 10ms loss 5% seed 11817420457092663704",
+    "qdisc netem 8002: root refcnt 19 limit 10000 delay 10ms seed 14068448243485147162"
+   ],
+   "summary": [
+    "20 packets transmitted, 20 received, 0% packet loss, time 959ms",
+    "rtt min/avg/max/mdev = 20.130/20.207/20.268/0.035 ms"
+   ]
+  },
+  "TH-wslns_R20_p0": {
+   "qdisc": [
+    "qdisc netem 8001: root refcnt 19 limit 10000 delay 10ms seed 218424460642854323",
+    "qdisc netem 8002: root refcnt 19 limit 10000 delay 10ms seed 6309415964630160470"
+   ],
+   "summary": [
+    "20 packets transmitted, 20 received, 0% packet loss, time 959ms",
+    "rtt min/avg/max/mdev = 20.130/20.233/20.401/0.066 ms"
+   ]
+  },
+  "TH-wslns_R50_p0.05": {
+   "qdisc": [
+    "qdisc netem 8001: root refcnt 19 limit 10000 delay 25ms loss 5% seed 7281596867325746473",
+    "qdisc netem 8002: root refcnt 19 limit 10000 delay 25ms seed 10771714949247645589"
+   ],
+   "summary": [
+    "20 packets transmitted, 18 received, 10% packet loss, time 966ms",
+    "rtt min/avg/max/mdev = 50.136/50.254/50.686/0.122 ms"
+   ]
+  },
+  "TH-wslns_R50_p0": {
+   "qdisc": [
+    "qdisc netem 8001: root refcnt 19 limit 10000 delay 25ms seed 8691690168165512764",
+    "qdisc netem 8002: root refcnt 19 limit 10000 delay 25ms seed 10580127999536695717"
+   ],
+   "summary": [
+    "20 packets transmitted, 20 received, 0% packet loss, time 956ms",
+    "rtt min/avg/max/mdev = 50.100/50.238/50.409/0.064 ms"
+   ]
+  }
+ },
+ "openssl": "OpenSSL 3.5.4 30 Sep 2025 at /opt/ossl35 (pre-existing install; not rebuilt, tarball SHA-256 not verified in this session)",
+ "probe": {
+  "source": "testbed/hs.c from pq-tls-flight-geometry repo copy (hs2.c unavailable)",
+  "sha256": "1f70c89e058b0ff739c4a17014077eb8815dbb0597e2b405d2fbcfc0807a3846"
+ },
+ "teardown": {
+  "date_utc": "2026-10-25T16:25:46Z",
+  "netns_after": "",
+  "veth_left": "0",
+  "netem_loaded_after": "1",
+  "servers_left": "0",
+  "rootns.tcp_congestion_control": "cubic",
+  "rootns.tcp_early_retrans": "3",
+  "rootns.tcp_recovery": "1",
+  "rootns.tcp_timestamps": "1",
+  "rootns.tcp_sack": "1"
+ },
+ "validity_warning": "d (two-segment ClientHello) segments were dropped jointly by netem (stalled d handshakes retransmit ~2 segments; d stall rate ~= one-segment rate). Two-segment results do not measure independent per-packet loss. See SUMMARY.md."
+}

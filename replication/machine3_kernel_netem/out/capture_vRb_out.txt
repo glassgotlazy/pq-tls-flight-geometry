@@ -1,0 +1,22 @@
+# capture on vRb for 3.0s
+  0.6868 OUT 10.77.1.1:51100 > 10.77.2.2:4505 ip_len=60 tcp_payload=0 flags=S seq=3517430950 head= sni_www.example.com=no
+  0.6878 IN  10.77.2.2:4505 > 10.77.1.1:51100 ip_len=60 tcp_payload=0 flags=SA seq=3250780539 head= sni_www.example.com=no
+  0.7080 OUT 10.77.1.1:51100 > 10.77.2.2:4505 ip_len=52 tcp_payload=0 flags=A seq=3517430951 head= sni_www.example.com=no
+  0.7109 OUT 10.77.1.1:51100 > 10.77.2.2:4505 ip_len=1500 tcp_payload=1448 flags=A seq=3517430951 head=16030105d001 sni_www.example.com=yes
+  0.7113 OUT 10.77.1.1:51100 > 10.77.2.2:4505 ip_len=97 tcp_payload=45 flags=PA seq=3517432399 head=c548a7cf2bb8 sni_www.example.com=no
+  0.7118 IN  10.77.2.2:4505 > 10.77.1.1:51100 ip_len=52 tcp_payload=0 flags=A seq=3250780540 head= sni_www.example.com=no
+  0.7120 IN  10.77.2.2:4505 > 10.77.1.1:51100 ip_len=52 tcp_payload=0 flags=A seq=3250780540 head= sni_www.example.com=no
+  0.7123 IN  10.77.2.2:4505 > 10.77.1.1:51100 ip_len=1500 tcp_payload=1448 flags=A seq=3250780540 head=16030304ba02 sni_www.example.com=no
+  0.7126 IN  10.77.2.2:4505 > 10.77.1.1:51100 ip_len=487 tcp_payload=435 flags=PA seq=3250781988 head=4401d9a6a180 sni_www.example.com=no
+  0.7325 OUT 10.77.1.1:51100 > 10.77.2.2:4505 ip_len=52 tcp_payload=0 flags=A seq=3517432444 head= sni_www.example.com=no
+  0.7328 OUT 10.77.1.1:51100 > 10.77.2.2:4505 ip_len=52 tcp_payload=0 flags=A seq=3517432444 head= sni_www.example.com=no
+  0.7332 OUT 10.77.1.1:51100 > 10.77.2.2:4505 ip_len=132 tcp_payload=80 flags=PA seq=3517432444 head=140303000101 sni_www.example.com=no
+  0.7336 IN  10.77.2.2:4505 > 10.77.1.1:51100 ip_len=307 tcp_payload=255 flags=PA seq=3250782423 head=17030300fa9e sni_www.example.com=no
+  0.7338 IN  10.77.2.2:4505 > 10.77.1.1:51100 ip_len=307 tcp_payload=255 flags=PA seq=3250782678 head=17030300fa1a sni_www.example.com=no
+  0.7347 OUT 10.77.1.1:51100 > 10.77.2.2:4505 ip_len=76 tcp_payload=24 flags=FPA seq=3517432524 head=1703030013bb sni_www.example.com=no
+  0.7351 IN  10.77.2.2:4505 > 10.77.1.1:51100 ip_len=76 tcp_payload=24 flags=PA seq=3250782933 head=1703030013ef sni_www.example.com=no
+  0.7354 IN  10.77.2.2:4505 > 10.77.1.1:51100 ip_len=52 tcp_payload=0 flags=FA seq=3250782957 head= sni_www.example.com=no
+  0.7539 OUT 10.77.1.1:51100 > 10.77.2.2:4505 ip_len=40 tcp_payload=0 flags=R seq=3517432524 head= sni_www.example.com=no
+  0.7543 OUT 10.77.1.1:51100 > 10.77.2.2:4505 ip_len=40 tcp_payload=0 flags=R seq=3517432524 head= sni_www.example.com=no
+  0.7545 OUT 10.77.1.1:51100 > 10.77.2.2:4505 ip_len=40 tcp_payload=0 flags=R seq=3517432549 head= sni_www.example.com=no
+  0.7548 OUT 10.77.1.1:51100 > 10.77.2.2:4505 ip_len=40 tcp_payload=0 flags=R seq=3517432549 head= sni_www.example.com=no

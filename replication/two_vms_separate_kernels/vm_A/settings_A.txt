@@ -1,0 +1,21 @@
+== root test0
+tcp-segmentation-offload: off
+generic-segmentation-offload: off
+generic-receive-offload: off
+large-receive-offload: off
+== root vroot
+tcp-segmentation-offload: off
+generic-segmentation-offload: off
+generic-receive-offload: off
+large-receive-offload: off [fixed]
+== cli vcli
+tcp-segmentation-offload: off
+generic-segmentation-offload: off
+generic-receive-offload: off
+large-receive-offload: off [fixed]
+root.tcp_congestion_control=cubic cli.tcp_congestion_control=cubic
+root.tcp_early_retrans=3 cli.tcp_early_retrans=3
+root.tcp_recovery=1 cli.tcp_recovery=1
+root.tcp_timestamps=1 cli.tcp_timestamps=1
+root.tcp_sack=1 cli.tcp_sack=1
+root.ip_forward=1 cli.ip_forward=1

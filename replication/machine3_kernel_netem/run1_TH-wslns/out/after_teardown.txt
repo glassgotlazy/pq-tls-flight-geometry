@@ -1,0 +1,10 @@
+date_utc=2026-10-25T16:25:46Z
+netns_after=
+veth_left=0
+netem_loaded_after=1
+servers_left=0
+rootns.tcp_congestion_control=cubic
+rootns.tcp_early_retrans=3
+rootns.tcp_recovery=1
+rootns.tcp_timestamps=1
+rootns.tcp_sack=1

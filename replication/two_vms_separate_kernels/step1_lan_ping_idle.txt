@@ -1,0 +1,3 @@
+# Step 1 LAN RTT pqa -> pqb over test0, 50 pings at 200 ms interval (copied from session output; raw lines not saved by the check)
+50 packets transmitted, 50 received, 0% packet loss, time 10078ms
+rtt min/avg/max/mdev = 0.467/1.967/23.110/3.639 ms

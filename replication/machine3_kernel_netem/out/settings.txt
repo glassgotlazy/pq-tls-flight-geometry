@@ -1,0 +1,36 @@
+== nsA vA
+tcp-segmentation-offload: off
+generic-segmentation-offload: off
+generic-receive-offload: off
+== nsR vRa
+tcp-segmentation-offload: off
+generic-segmentation-offload: off
+generic-receive-offload: off
+== nsR vRb
+tcp-segmentation-offload: off
+generic-segmentation-offload: off
+generic-receive-offload: off
+== nsB vB
+tcp-segmentation-offload: off
+generic-segmentation-offload: off
+generic-receive-offload: off
+nsA.tcp_congestion_control=cubic
+nsA.tcp_early_retrans=3
+nsA.tcp_recovery=1
+nsA.tcp_timestamps=1
+nsA.tcp_sack=1
+nsA.ip_forward=0
+nsR.tcp_congestion_control=cubic
+nsR.tcp_early_retrans=3
+nsR.tcp_recovery=1
+nsR.tcp_timestamps=1
+nsR.tcp_sack=1
+nsR.ip_forward=1
+nsB.tcp_congestion_control=cubic
+nsB.tcp_early_retrans=3
+nsB.tcp_recovery=1
+nsB.tcp_timestamps=1
+nsB.tcp_sack=1
+nsB.ip_forward=0
+nsA vA qdisc: qdisc noqueue 0: root refcnt 2 
+nsB vB qdisc: qdisc noqueue 0: root refcnt 2 

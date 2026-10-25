@@ -1,0 +1,6 @@
+free_RAM_GB=2.1
+windowed_apps=ApplicationFrameHost,chrome,explorer,Rainmeter,SystemSettings,TextInputHost,WindowsTerminal
+vmware_vmx_priority=,
+wsl_running=False
+overlay_ac=ded574b5-45a0-4f42-8737-46345c09c238
+retry note: run with Chrome and Rainmeter open (user chose to proceed)
