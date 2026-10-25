@@ -1,0 +1,5 @@
+# PH_R50_p0.05 2026-10-25T17:58:38Z
+qdisc netem 8001: root refcnt 3 limit 10000 delay 25ms loss 5%
+qdisc netem 8002: root refcnt 3 limit 10000 delay 25ms
+20 packets transmitted, 19 received, 5% packet loss, time 979ms
+rtt min/avg/max/mdev = 50.519/52.689/65.676/4.320 ms, pipe 2

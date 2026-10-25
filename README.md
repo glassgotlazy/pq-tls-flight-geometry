@@ -72,6 +72,45 @@ profile (`chromium.launch()`), with `--host-resolver-rules=MAP www.example.com 1
 `raw/` holds the s_server logs of the published run (Microsoft Edge 154.0.4258.53 and the Playwright-bundled
 Chromium 141.0.7390.37, Linux 6.18.44, Ubuntu 24.04, headless, 5 connections each).
 
+## Replication runs (Table II of the paper)
+| Table II row | Folder | Hardware |
+|---|---|---|
+| Second machine, R=20 and 50 ms | replication/machine2_userspace_and_kernel_drop (`b2.csv`) | second cloud VM (2 vCPUs, Linux 6.18.44). Kernel netem was not available on this machine (`CONFIG_NET_SCH_NETEM` not set), so delay and loss come from the user-space `imp.py`, as on the first testbed |
+| Kernel-side loss, R=50 ms | replication/machine2_userspace_and_kernel_drop (`k.csv`) | same cloud VM: random drop by nftables at the server's ingress; `imp.py` adds the delay only |
+| Third machine, netem, R=20 and 50 ms | replication/machine3_kernel_netem | WSL2 on a Windows 11 laptop: one Linux kernel, three network namespaces (client, router, server), kernel tc-netem on the router's egress |
+| Two VMs, netem, R=50 ms | replication/two_vms_separate_kernels | two VMware Workstation VMs on one Windows 11 laptop, each with its own Linux 6.8 kernel; kernel tc-netem on the forwarding host A |
+| Resumed handshakes (hybrid vs X25519) | replication/machine2_userspace_and_kernel_drop (`s.csv`) | same cloud VM: resumption timing at R=50 ms with 5% client-to-server loss |
+
+Each folder keeps its own `SUMMARY.md` (or README) unchanged from the run, together with `meta.json`, the raw CSVs, the client TCP counters,
+the analysis script and that script's complete output.
+- **Second machine:** `python3 -I ana2.py <dir>` reproduces `ana2_output.txt` (it needs numpy and scipy).
+  Point it at a copy of `data/`, because it rewrites `ana2.json` in the directory it is given.
+  `python3 -I penalty_ci.py <repo_root>` reproduces `penalty_ci_output.txt` from the top-level `data/`.
+- **Third machine:** the analysis script (`scripts_kn/ana_wsl.py`) expects the raw CSVs and the counter files in one directory.
+  Copy `raw/` and `counters/` into one directory and run `python3 scripts_kn/ana_wsl.py <dir> 200`.
+  The output matches the committed `analysis_output.txt`.
+- **Two VMs:** rebuilt the same way with `scripts/ana_ph.py`. `scripts/accept.py` rebuilds both acceptance tables.
+- **Two-VM jitter check:** the planned idle-ping LAN-RTT check failed (mean 1.97 ms against a 1 ms limit).
+  It was replaced by a p=0 acceptance check, fixed before the first attempt ran: per configuration, t_tls − R must have a median ≤ 3 ms,
+  an IQR ≤ 2 ms and a p99 ≤ 10 ms.
+  The first attempt failed the p99 limit and was discarded (not used as the baseline).
+  A retry passed and is the baseline. Before it, WSL was shut down and Windows was switched to Best performance mode. Both acceptance tables are in the folder
+  (`acceptance_attempt1.txt`, `acceptance_attempt2.txt`, `accept_attempt1/`).
+- **Pilot:** `replication/pilot_invalid_joint_loss` is the first WSL pilot (pass TH). It is **invalid** and is kept only for transparency;
+  it is not used in the paper. With netem on the sender's own interface, the two ClientHello segments were dropped together.
+  The likely cause is that netem saw them as one GSO packet. This is inferred from retransmit counts, not confirmed by a capture;
+  see that folder's `SUMMARY.md`.
+  `replication/machine3_kernel_netem/run1_TH-wslns/` holds a second copy of the same pilot, also not used.
+- **Figures:** `replication/machine2_userspace_and_kernel_drop/make_figures.py` produces Figs. 1 and 3-7 of the paper
+  (fig1_timeline, fig3_profiles, fig4_sni, fig5_loss, fig6_clusters, fig7_bidir). Fig. 2, the testbed diagram, is drawn in LaTeX
+  in the paper source. The script also writes fig8_resumption, which the current paper no longer uses. Run it as `python3 -I make_figures.py <repo_root> <out_dir>`; it needs numpy, scipy, matplotlib and the Liberation Serif font.
+  It reads the repository's `data/` folder.
+  The ratio points in Fig. 5b are constants written into the script, not computed when it runs:
+  - third machine and two-VM run: copied from `replication/machine3_kernel_netem` and `replication/two_vms_separate_kernels`;
+  - machine 1: copied from `analysis/big_output.txt`;
+  - machine 2: copied from `ana2_output.txt`.
+  All of them match their sources after rounding to two decimals.
+
 ## Known issues
 - The testbed scripts hard-code `/home/claude/pqtls/` (imp.py, hs, certificates, output files). Create that
   directory or edit the paths. The server certificates `ec.crt`/`ec.key` (and `rsachain.pem` for pass C) are not included.

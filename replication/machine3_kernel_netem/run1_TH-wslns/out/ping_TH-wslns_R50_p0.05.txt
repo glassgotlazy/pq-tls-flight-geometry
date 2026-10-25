@@ -1,0 +1,5 @@
+# TH-wslns_R50_p0.05 2026-10-25T16:20:17Z
+qdisc netem 8001: root refcnt 19 limit 10000 delay 25ms loss 5% seed 7281596867325746473
+qdisc netem 8002: root refcnt 19 limit 10000 delay 25ms seed 10771714949247645589
+20 packets transmitted, 18 received, 10% packet loss, time 966ms
+rtt min/avg/max/mdev = 50.136/50.254/50.686/0.122 ms

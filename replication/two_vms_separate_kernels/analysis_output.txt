@@ -1,0 +1,22 @@
+rows read / dropped (ok!=1) per (pass,R,p,cfg):
+  ('PH', 50, 0.0, 'd'): rows=300 dropped=0
+  ('PH', 50, 0.0, 'h1'): rows=300 dropped=0
+  ('PH', 50, 0.0, 'x'): rows=300 dropped=0
+  ('PH', 50, 0.05, 'd'): rows=2000 dropped=0
+  ('PH', 50, 0.05, 'h1'): rows=2000 dropped=0
+  ('PH', 50, 0.05, 'x'): rows=2000 dropped=0
+total rows=6900 dropped=0
+
+=== PH R=50 p=0.05  T_RTO=250 ms  stall threshold=30 ms
+  x  n=2000 base_median=52.086 mean_added=  17.26 stall= 5.50% (110) p90=  15.56 p99=  267.4 head=2@58.9 rto=89@257.6 tail=16@276.3
+  h1 n=2000 base_median=52.338 mean_added=  17.95 stall= 6.05% (121) p90=  16.32 p99=  266.8 head=2@82.0 rto=95@257.2 tail=16@277.1
+  d  n=2000 base_median=52.339 mean_added=  25.12 stall=11.00% (220) p90=  66.28 p99=  318.6 head=88@67.3 rto=1@269.1 tail=113@307.8
+  pooled x+h1 n=4000 mean_added=17.61 stall=5.78% head=4@58.9 tail=32@277.1
+  ratio d/(x+h1) = 1.427 [1.188,1.705]  perm p=0.00030  Fisher(one-sided, stalls) p=1.23e-12
+
+netstat TcpExt deltas on nsA (after - before), per cell:
+  PH_R50_p0.05: TCPLossProbes=326 TCPLossProbeRecovery=277 TCPTimeouts=387 TCPSackRecovery=405
+  PH_R50_p0: TCPLossProbes=0 TCPLossProbeRecovery=0 TCPTimeouts=0 TCPSackRecovery=0
+
+SUMMARY ROWS (Setup | R | Stalled two/one seg (%) | Ratio [95% CI] | perm p | head/tail cluster medians (ms))
+| PH p=0.05 | 50 | 11.0 / 5.8 | 1.43 [1.19, 1.71] | 0.0003 | d 67.3/307.8; x+h1 58.9/277.1 |

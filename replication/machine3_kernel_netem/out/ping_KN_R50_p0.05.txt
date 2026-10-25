@@ -1,0 +1,7 @@
+# KN_R50_p0.05 2026-10-25T16:54:26Z
+qdisc netem 8003: root refcnt 19 limit 10000 delay 25ms loss 5% seed 15127609275402622880
+qdisc netem 8004: root refcnt 19 limit 10000 delay 25ms seed 7507988357136016551
+nsA vA: qdisc noqueue 0: root refcnt 2 
+nsB vB: qdisc noqueue 0: root refcnt 2 
+20 packets transmitted, 20 received, 0% packet loss, time 958ms
+rtt min/avg/max/mdev = 50.137/50.315/50.687/0.109 ms

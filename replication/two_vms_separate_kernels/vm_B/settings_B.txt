@@ -1,0 +1,12 @@
+servers=6
+tcp-segmentation-offload: off
+generic-segmentation-offload: off
+generic-receive-offload: off
+large-receive-offload: off
+tcp_congestion_control=cubic
+tcp_early_retrans=3
+tcp_recovery=1
+tcp_timestamps=1
+tcp_sack=1
+ip_forward=0
+route: 10.77.0.2 via 192.168.77.1 dev test0 src 192.168.77.2 uid 0 

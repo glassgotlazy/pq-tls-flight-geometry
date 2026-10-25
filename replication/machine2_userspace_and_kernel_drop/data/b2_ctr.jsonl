@@ -1,0 +1,4 @@
+{"pass_": "B2", "rtt": 20, "p": 0.0, "loss": "imp", "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"pass_": "B2", "rtt": 20, "p": 0.05, "loss": "imp", "TCPLossProbes": 327, "TCPLossProbeRecovery": 274, "TCPTimeouts": 338, "TCPSackRecovery": 385}
+{"pass_": "B2", "rtt": 50, "p": 0.0, "loss": "imp", "TCPLossProbes": 0, "TCPLossProbeRecovery": 0, "TCPTimeouts": 0, "TCPSackRecovery": 0}
+{"pass_": "B2", "rtt": 50, "p": 0.05, "loss": "imp", "TCPLossProbes": 306, "TCPLossProbeRecovery": 259, "TCPTimeouts": 350, "TCPSackRecovery": 384}

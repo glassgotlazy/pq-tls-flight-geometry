@@ -1,0 +1,2 @@
+qdisc netem 8001: root refcnt 3 limit 10000 delay 25ms
+qdisc netem 8002: root refcnt 3 limit 10000 delay 25ms
